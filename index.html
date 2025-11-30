@@ -2,213 +2,383 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Doubt Busters</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doubt Busters – Join Our Groups</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ---------- THEME VARIABLES ---------- */
     :root {
-      --bg-dark: #050509;
-      --cream: #f5e9d5;
-      --accent: #ffd27f;
-      --accent-soft: rgba(255, 210, 127, 0.35);
-      --accent-strong: rgba(255, 210, 127, 0.8);
+      --bg: #050506;
+      --bg-soft: radial-gradient(circle at top, #1a1612 0, #050506 55%);
+      --card: rgba(18, 18, 20, 0.96);
+      --card-border: rgba(255, 255, 255, 0.04);
+      --text-main: #f5f3ee;
+      --text-sub: #b3afa9;
+      --accent: #f3c98b;
+      --accent-soft: rgba(243, 201, 139, 0.2);
+      --btn-bg: #19181b;
+      --btn-hover: #232228;
+      --join-all-bg: #f0b867;
+      --join-all-text: #18110a;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f5f2ec;
+        --bg-soft: radial-gradient(circle at top, #fdf6e7 0, #f5f2ec 55%);
+        --card: rgba(255, 255, 255, 0.96);
+        --card-border: rgba(0, 0, 0, 0.06);
+        --text-main: #221c16;
+        --text-sub: #6d6358;
+        --accent: #f0b867;
+        --accent-soft: rgba(240, 184, 103, 0.15);
+        --btn-bg: #f3eee6;
+        --btn-hover: #ebe3d7;
+        --join-all-bg: #18110a;
+        --join-all-text: #fdf5ea;
+      }
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #151520 0, #050509 50%, #000 100%);
-      color: var(--cream);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, sans-serif;
+  background: #111215; /* dark premium look */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 16px;
+  color: var(--text-main);
+}
 
-    /* Top portfolio button */
-    .portfolio-btn {
-      display: inline-block;
-      margin: 20px auto 10px;
-      padding: 8px 18px;
-      background: rgba(255, 210, 127, 0.12);
-      border: 1px solid rgba(255, 210, 127, 0.25);
-      color: var(--cream);
-      font-size: 13px;
-      border-radius: 10px;
-      text-decoration: none;
-      backdrop-filter: blur(6px);
-      transition: 0.25s ease;
-    }
-
-    .portfolio-btn:hover {
-      background: rgba(255, 210, 127, 0.25);
-      border-color: var(--accent);
-      box-shadow: 0 0 12px rgba(255, 210, 127, 0.35);
-      transform: translateY(-2px);
-    }
-
-    .page {
+    /* ---------- LAYOUT ---------- */
+    .page-wrapper {
+      max-width: 420px;
       width: 100%;
-      max-width: 600px;
-      padding: 24px;
     }
+
+   .made-by {
+  display: inline-flex;
+  margin: 0 auto 22px;
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: #f7f3e8; /* soft cream like card */
+  color: #3d372f; /* warm dark text */
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+  transition: 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.made-by:hover {
+  transform: translateY(-2px);
+  background: #fff7e7;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.26);
+  color: #2b2620;
+}
 
     .card {
-      background: rgba(15, 15, 20, 0.95);
-      border-radius: 24px;
-      border: 1px solid rgba(245, 233, 213, 0.08);
+      border-radius: 28px;
+      padding: 26px 20px 24px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
       box-shadow:
-        0 0 40px rgba(0, 0, 0, 0.8),
-        0 0 60px rgba(255, 210, 127, 0.08);
-      padding: 32px 24px 28px;
+        0 18px 60px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
       text-align: center;
-      backdrop-filter: blur(20px);
-      margin-top: 10px;
     }
 
-    /* Logo container */
-    .logo-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    /* Glowing ring */
-    .logo-glow {
-      position: relative;
-      width: 130px;
-      height: 130px;
+    /* ---------- LOGO / HERO ---------- */
+   .logo-ring {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #262626, #121212);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 18px rgba(94, 160, 255, 0.55),
+    0 0 65px rgba(94, 160, 255, 0.28);
+}
+    .logo-inner {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, var(--accent), #ffb347 40%, #202020 80%);
+      background: radial-gradient(circle at 30% 20%, #18161a, #050506 75%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        0 0 25px var(--accent-soft),
-        0 0 60px var(--accent-soft),
-        0 0 90px rgba(255, 210, 127, 0.4);
-      animation: pulseGlow 2.5s infinite alternate ease-in-out;
       overflow: hidden;
     }
 
-    @keyframes pulseGlow {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.08);
-      }
+    .logo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+    .fallback-logo-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--accent);
     }
 
-    .logo-img {
-      width: 88%;
-      height: 88%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(5, 5, 9, 0.8);
-    }
-
-    .title {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 10px;
+    /* ---------- TEXT ---------- */
+    .title-main {
+      font-size: 24px;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
     }
 
     .subtitle {
-      font-size: 14px;
-      opacity: 0.75;
-      max-width: 360px;
-      margin: 0 auto 24px;
+      font-size: 13px;
+      color: var(--text-sub);
       line-height: 1.6;
+      margin-bottom: 22px;
     }
 
-    .btn-wrap {
+    .sub-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* ---------- PRIMARY BUTTONS (TOP) ---------- */
+    .primary-actions {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      margin-bottom: 20px;
-      margin-top: 10px;
+      gap: 10px;
+      margin-bottom: 22px;
     }
 
-    .join-btn {
-      text-decoration: none;
-      padding: 14px 42px;
+    .primary-btn {
+      padding: 12px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(245, 233, 213, 0.4);
-      background: linear-gradient(135deg, #101010 0, #1b1b1b 40%, #2a2115 100%);
-      color: var(--cream);
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+      border: none;
+      outline: none;
+      background: linear-gradient(135deg, var(--accent), #e19a52);
+      color: #1a1209;
+      font-size: 14px;
+      font-weight: 600;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
       cursor: pointer;
-      transition: 0.18s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease;
     }
 
-    .join-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      background: linear-gradient(135deg, #191919 0, #252525 40%, #3a2e1b 100%);
-      border-color: var(--accent);
-      box-shadow: 0 0 30px rgba(255, 210, 127, 0.35);
+    .primary-btn span.arrow {
+      font-size: 16px;
+      margin-top: -1px;
     }
 
-    .tagline {
-      font-size: 11px;
-      opacity: 0.6;
-      letter-spacing: 1.4px;
+    .primary-btn.secondary {
+      background: var(--btn-bg);
+      color: var(--text-main);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .primary-btn:active {
+      transform: translateY(1px) scale(0.99);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      filter: brightness(0.96);
+    }
+
+    /* ---------- GROUP BUTTON GRID ---------- */
+    .groups-wrapper {
+      margin-top: 6px;
+      padding: 16px 14px 12px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top, var(--accent-soft) 0, transparent 60%);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .groups-heading {
+      font-size: 13px;
       text-transform: uppercase;
-      margin-top: 8px;
+      letter-spacing: 0.18em;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+
+    .groups-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .group-btn {
+      flex: 1 1 calc(50% - 10px);
+      min-width: 145px;
+      max-width: 100%;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 999px;
+      background: var(--btn-bg);
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: background 0.2s ease, transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .group-btn:hover {
+      background: var(--btn-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+    }
+
+.join-all {
+  background: linear-gradient(135deg, #1b1b1b, #000000);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+}
+.join-all {
+  background: linear-gradient(135deg, #3a3e47, #1f2229);
+  color: #e7e9ec !important;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.join-all:hover {
+  background: linear-gradient(135deg, #474c56, #2a2d33);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+.join-all:hover {
+  filter: brightness(1.09);
+}
+    .groups-footer {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-sub);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      opacity: 0.6;
+      margin: 0 5px;
+    }
+
+    /* ---------- SMALL SCREENS ---------- */
+    @media (max-width: 420px) {
+      .card {
+        padding: 22px 18px 20px;
+      }
+      .logo-ring {
+        width: 135px;
+        height: 135px;
+      }
+      .title-main {
+        font-size: 22px;
+      }
+      .main-highlight {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+}
+.main-highlight {
+  background: #000;
+  color: #fff !important;
+  font-weight: 700;
+  border: 1px solid #444;
+}
+
+.main-highlight:hover {
+  background: #0a0a0a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
     }
   </style>
 </head>
-
 <body>
+  <div class="page-wrapper">
 
-  <!-- Top Portfolio Button -->
-  <a class="portfolio-btn" href="https://lazyekansh.vercel.app" target="_blank">
-    Made By Ekansh
-  </a>
+    <!-- Made by button – put your portfolio link here -->
+    <a class="made-by" href="https://lazyekansh.vercel.app" target="_blank" rel="noopener noreferrer">
+      <span>Made by Ekansh</span>
+    </a>
 
-  <div class="page">
-    <div class="card">
-
-      <div class="logo-wrap">
-        <div class="logo-glow">
-          <!-- Your Logo Image -->
-          <img class="logo-img" src="https://iili.io/fFV6EIS.jpg" alt="Doubt Busters" />
+    <main class="card">
+      <!-- Logo area -->
+      <div class="logo-ring">
+        <div class="logo-inner">
+          <!-- Replace src with your actual logo. If no image, delete <img> & keep the text -->
+          <img src="https://iili.io/fFV6EIS.jpg" alt="Doubt Busters Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <span class="fallback-logo-text" style="display:none;">Doubt Busters</span>
         </div>
       </div>
 
-      <h1 class="title">Join Our Telegram Group</h1>
-
+      <div class="sub-badge">Focused prep community</div>
+      <h1 class="title-main">Join Our Telegram Network</h1>
       <p class="subtitle">
-        Be part of a focused community – quizzes, notes, doubts and daily motivation in one place.
-        Everything you need during your prep!
+        Quizzes, doubts, notes, mentorship and daily motivation – everything in one clean ecosystem so you
+        can focus on growth, not distractions.
       </p>
 
-      <div class="btn-wrap">
-        <!-- MAIN GROUP -->
-        <a class="join-btn" href="https://t.me/+ZcyWGtCeQZxlMjY1" target="_blank">
-          Join Main Group Now
-        </a>
+      <!-- Groups grid -->
+      <section id="all-groups" class="groups-wrapper">
+        <div class="groups-heading">All Doubt Busters spaces</div>
 
-        <!-- OTHER GROUPS -->
-        <a class="join-btn" href="https://t.me/addlist/UnmjRoMmPIZjNTQ5" target="_blank">
-          Join Other Imp Groups
-        </a>
-      </div>
+        <div class="groups-container">
+          <!-- Replace href="" with your actual links -->
+          <a href="https://t.me/+ZcyWGtCeQZxlMjY1" class="group-btn main-highlight">Main Group</a>
+          <a href="https://t.me/+Jm5jqBv2iuwwYmI1" class="group-btn">Quiz Group</a>
+          <a href="https://t.me/+i_EUVbgLLVZkZjc9" class="group-btn">Mentorship Group</a>
+          <a href="https://t.me/+TGg0HNtGUJkxMjg9" class="group-btn">Study Materials Group</a>
+          <a href="https://t.me/neetmedicos26" class="group-btn">Main Channel</a>
+          <a href="https://t.me/rankriderscontant" class="group-btn">Study Materials Channel</a>
+          <a href="https://t.me/+0GRtx_-_WkZlOTg9" class="group-btn">Quiz Collection Group</a>
+         
+          <a href="https://t.me/addlist/UnmjRoMmPIZjNTQ5" class="group-btn join-all">Join All (Recommended)</a>
+        </div>
 
-      <p class="tagline">No Distractions • Just Growth</p>
-
-    </div>
+        <div class="groups-footer">
+          No Distractions<span class="dot">•</span>Just Growth
+        </div>
+      </section>
+    </main>
   </div>
+
+  <!-- No JS required, but you can add analytics here if needed -->
 </body>
 </html>
