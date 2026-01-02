@@ -1,383 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doubt Busters – Join Our Groups</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doubt Busters | Happy New Year 2026</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    /* ---------- THEME VARIABLES ---------- */
-    :root {
-      --bg: #050506;
-      --bg-soft: radial-gradient(circle at top, #1a1612 0, #050506 55%);
-      --card: rgba(18, 18, 20, 0.96);
-      --card-border: rgba(255, 255, 255, 0.04);
-      --text-main: #f5f3ee;
-      --text-sub: #b3afa9;
-      --accent: #f3c98b;
-      --accent-soft: rgba(243, 201, 139, 0.2);
-      --btn-bg: #19181b;
-      --btn-hover: #232228;
-      --join-all-bg: #f0b867;
-      --join-all-text: #18110a;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;800&display=swap');
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f5f2ec;
-        --bg-soft: radial-gradient(circle at top, #fdf6e7 0, #f5f2ec 55%);
-        --card: rgba(255, 255, 255, 0.96);
-        --card-border: rgba(0, 0, 0, 0.06);
-        --text-main: #221c16;
-        --text-sub: #6d6358;
-        --accent: #f0b867;
-        --accent-soft: rgba(240, 184, 103, 0.15);
-        --btn-bg: #f3eee6;
-        --btn-hover: #ebe3d7;
-        --join-all-bg: #18110a;
-        --join-all-text: #fdf5ea;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-  min-height: 100vh;
-  font-family: "Poppins", system-ui, sans-serif;
-  background: #111215; /* dark premium look */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 28px 16px;
-  color: var(--text-main);
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-    /* ---------- LAYOUT ---------- */
-    .page-wrapper {
-      max-width: 420px;
-      width: 100%;
-    }
-
-   .made-by {
-  display: inline-flex;
-  margin: 0 auto 22px;
-  padding: 9px 22px;
-  border-radius: 999px;
-  background: #f7f3e8; /* soft cream like card */
-  color: #3d372f; /* warm dark text */
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(6px);
-  transition: 0.25s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-}
-.made-by:hover {
-  transform: translateY(-2px);
-  background: #fff7e7;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.26);
-  color: #2b2620;
+/* ===== ambient glow ===== */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99,102,241,.12), transparent 35%),
+    radial-gradient(circle at 80% 80%, rgba(236,72,153,.12), transparent 35%);
+  z-index:-2;
 }
 
-    .card {
-      border-radius: 28px;
-      padding: 26px 20px 24px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      box-shadow:
-        0 18px 60px rgba(0, 0, 0, 0.55),
-        0 0 0 1px rgba(255, 255, 255, 0.03);
-      text-align: center;
-    }
+/* ===== snowflakes ===== */
+.snowflake{
+  position:fixed;
+  top:-10px;
+  color:rgba(255,255,255,0.6);
+  pointer-events:none;
+  animation:fall linear infinite;
 
-    /* ---------- LOGO / HERO ---------- */
-   .logo-ring {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #262626, #121212);
-  padding: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* ✨ subtle glow */
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.25),
+    0 0 12px rgba(255,255,255,0.15);
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh)}
+}
+
+/* ===== logo bounce ===== */
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+.logo-bounce{animation:bounce 2.5s ease-in-out infinite}
+
+/* ===== cards ===== */
+.card{
+  background:linear-gradient(180deg,#0b0b0b,#050505);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#6366f1;
+  box-shadow:0 0 18px rgba(99,102,241,.25);
+}
+/* === MAIN GROUP FEATURED CARD === */
+.featured {
+  transform: scale(1.03);
+  border-color: rgba(99,102,241,1);
   box-shadow:
-    0 0 18px rgba(94, 160, 255, 0.55),
-    0 0 65px rgba(94, 160, 255, 0.28);
-}
-    .logo-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #18161a, #050506 75%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .logo-inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+    0 0 25px rgba(99,102,241,0.45),
+    inset 0 0 0 1px rgba(99,102,241,0.35);
+  position: relative;
+  z-index: 2;
 }
 
-    .fallback-logo-text {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    /* ---------- TEXT ---------- */
-    .title-main {
-      font-size: 24px;
-      letter-spacing: 0.02em;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-bottom: 22px;
-    }
-
-    .sub-badge {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    /* ---------- PRIMARY BUTTONS (TOP) ---------- */
-    .primary-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-
-    .primary-btn {
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: none;
-      outline: none;
-      background: linear-gradient(135deg, var(--accent), #e19a52);
-      color: #1a1209;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease;
-    }
-
-    .primary-btn span.arrow {
-      font-size: 16px;
-      margin-top: -1px;
-    }
-
-    .primary-btn.secondary {
-      background: var(--btn-bg);
-      color: var(--text-main);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-
-    .primary-btn:active {
-      transform: translateY(1px) scale(0.99);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-      filter: brightness(0.96);
-    }
-
-    /* ---------- GROUP BUTTON GRID ---------- */
-    .groups-wrapper {
-      margin-top: 6px;
-      padding: 16px 14px 12px;
-      border-radius: 20px;
-      background: radial-gradient(circle at top, var(--accent-soft) 0, transparent 60%);
-      border: 1px solid rgba(255, 255, 255, 0.02);
-    }
-
-    .groups-heading {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-sub);
-      margin-bottom: 12px;
-    }
-
-    .groups-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .group-btn {
-      flex: 1 1 calc(50% - 10px);
-      min-width: 145px;
-      max-width: 100%;
-      padding: 10px 12px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
-      border-radius: 999px;
-      background: var(--btn-bg);
-      color: var(--text-main);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: background 0.2s ease, transform 0.12s ease, box-shadow 0.12s ease;
-    }
-
-    .group-btn:hover {
-      background: var(--btn-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
-    }
-
-.join-all {
-  background: linear-gradient(135deg, #1b1b1b, #000000);
-  color: #ffffff;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
-}
-.join-all {
-  background: linear-gradient(135deg, #3a3e47, #1f2229);
-  color: #e7e9ec !important;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+/* thicker animated top bar */
+.featured .featured-bar {
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(90deg,#6366f1,#818cf8,#6366f1);
+  border-radius: 999px;
+  animation: barFlow 3s linear infinite;
+  margin-bottom: 10px;
 }
 
-.join-all:hover {
-  background: linear-gradient(135deg, #474c56, #2a2d33);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
-}
-.join-all:hover {
-  filter: brightness(1.09);
-}
-    .groups-footer {
-      margin-top: 10px;
-      font-size: 11px;
-      color: var(--text-sub);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      opacity: 0.6;
-      margin: 0 5px;
-    }
-
-    /* ---------- SMALL SCREENS ---------- */
-    @media (max-width: 420px) {
-      .card {
-        padding: 22px 18px 20px;
-      }
-      .logo-ring {
-        width: 135px;
-        height: 135px;
-      }
-      .title-main {
-        font-size: 22px;
-      }
-      .main-highlight {
-  background: #000;
-  color: #fff;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
-}
-.main-highlight {
-  background: #000;
-  color: #fff !important;
-  font-weight: 700;
-  border: 1px solid #444;
+/* slow breathing glow */
+.featured::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at top,
+    rgba(99,102,241,0.35),
+    transparent 70%
+  );
+  opacity: 0.4;
+  animation: breathe 4s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.main-highlight:hover {
-  background: #0a0a0a;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+@keyframes breathe {
+  0%,100% { opacity: 0.25; }
+  50% { opacity: 0.6; }
 }
-    }
-  </style>
+
+@keyframes barFlow {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+/* accent bars */
+.bar-indigo{background:linear-gradient(90deg,#6366f1,#818cf8)}
+.bar-pink{background:linear-gradient(90deg,#ec4899,#f472b6)}
+.bar-green{background:linear-gradient(90deg,#10b981,#34d399)}
+.bar-slate{background:linear-gradient(90deg,#64748b,#94a3b8)}
+</style>
 </head>
-<body>
-  <div class="page-wrapper">
-    <a class="made-by" href="https://lazyekansh.vercel.app" target="_blank" rel="noopener noreferrer">
-      <span>Made by Ekansh</span>
-    </a>
-    <main class="card">
-      <!-- Logo area -->
-      <div class="logo-ring">
-        <div class="logo-inner">
 
-          <img src="https://iili.io/fFV6EIS.jpg" alt="Doubt Busters Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span class="fallback-logo-text" style="display:none;">Doubt Busters</span>
-        </div>
-      </div>
+<body class="px-4 md:px-6">
 
-      <div class="sub-badge">Focused prep community</div>
-      <h1 class="title-main">Join Our Telegram Network</h1>
-      <p class="subtitle">
-        Quizzes, doubts, notes, mentorship and daily motivation – everything in one clean ecosystem so you
-        can focus on growth, not distractions.
-      </p>
+<!-- snowflakes -->
+<script>
+for(let i=0;i<50;i++){
+  let s=document.createElement("div");
+  s.className="snowflake";
 
-      <!-- Groups grid -->
-      <section id="all-groups" class="groups-wrapper">
-        <div class="groups-heading">All Doubt Busters spaces</div>
+  s.style.left = Math.random()*100 + "vw";
+  s.style.animationDuration = 8 + Math.random()*12 + "s";
+  s.style.fontSize = 6 + Math.random()*6 + "px";
 
-        <div class="groups-container">
+  // ✨ random glow intensity
+  const glow = 0.15 + Math.random()*0.25;
+  s.style.textShadow = `
+    0 0 ${6 + Math.random()*6}px rgba(255,255,255,${glow}),
+    0 0 ${12 + Math.random()*8}px rgba(255,255,255,${glow/2})
+  `;
 
-          <a href="https://t.me/+ZcyWGtCeQZxlMjY1" class="group-btn main-highlight">Main Group</a>
-          <a href="https://t.me/rankriderscontant" class="group-btn">Main Channel</a>
-          <a href="https://t.me/+rIwRNVjTWlg0OTI1" class="group-btn">Quiz Group</a>
-          <a href="https://t.me/+i_EUVbgLLVZkZjc9" class="group-btn">Mentorship Group</a>
-          <a href="https://t.me/+TGg0HNtGUJkxMjg9" class="group-btn">Study Materials Group</a>
-          <a href="https://t.me/pw_studymaterials" class="group-btn">Study Materials Channel</a>
-          <a href="https://t.me/+Jm5jqBv2iuwwYmI1" class="group-btn">Quiz Collection Group</a>
-          <a href="1https://discord.gg/j2rdAqW2cS" class="group-btn">Discord Server</a>
-          <a href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTY4NTg1Mw==" class="group-btn">YPT Group</a>
-         
-          <a href="https://t.me/addlist/UnmjRoMmPIZjNTQ5" class="group-btn join-all">Join All (Recommended)</a>
-        </div>
+  s.innerHTML = "❄";
+  document.body.appendChild(s);
+}
 
-        <div class="groups-footer">
-          No Distractions<span class="dot">•</span>Just Growth
-        </div>
-      </section>
-    </main>
+</script>
+
+<!-- HERO -->
+<section class="text-center mt-8 mb-6">
+  <img src="https://iili.io/fFV6EIS.jpg"
+       class="w-24 h-24 mx-auto rounded-2xl border border-indigo-500 p-1 logo-bounce">
+  <h1 class="text-4xl font-extrabold mt-3">
+    Doubt <span class="text-indigo-400">Busters</span>
+  </h1>
+  <p class="text-slate-400 text-sm mt-2">
+    Focus • Discipline • Growth
+  </p>
+</section>
+
+<!-- HAPPY NEW YEAR MESSAGE -->
+<section class="max-w-4xl mx-auto mb-6">
+  <div class="card rounded-xl p-6 text-center">
+    <h2 class="text-lg font-semibold text-indigo-400 mb-2">
+      Happy New Year 2026
+    </h2>
+    <p class="text-slate-300 text-sm leading-relaxed">
+      A new year means a new chance to be consistent.  
+      Less noise. More focus.  
+      <br><br>
+      Stay with <b>Doubt Busters</b>.  
+      Let 2026 be the year you outgrow your limits.
+    </p>
   </div>
+</section>
 
+<!-- JOIN ALL -->
+<div class="flex justify-center mb-6">
+  <a href="https://t.me/addlist/UnmjRoMmPIZjNTQ5"
+     class="px-6 py-3 rounded-xl bg-indigo-600 text-sm font-semibold">
+    Join All DB Groups
+  </a>
+</div>
+
+<!-- GROUPS -->
+<section class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+
+<a href="https://t.me/+ZcyWGtCeQZxlMjY1"
+   class="card featured p-6 rounded-xl">
+
+  <div class="featured-bar"></div>
+
+  <h3 class="font-semibold text-lg">Main Group</h3>
+  <p class="text-slate-400 text-sm">
+    Core discussions • Primary DB Hub
+  </p>
+</a>
+
+<a href="https://t.me/+hz-omjhKYHI1ZmU1"
+   class="card featured p-6 rounded-xl">
+
+  <div class="featured-bar"></div>
+
+  <h3 class="font-semibold text-lg">Main Channel</h3>
+  <p class="text-slate-400 text-sm">
+    Core Announcements • Primary DB Hub
+  </p>
+</a>
+
+<a href="https://t.me/+rIwRNVjTWlg0OTI1" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-pink mb-2"></div>
+  <h3 class="font-semibold">Quiz Group</h3>
+  <p class="text-slate-500 text-sm">Daily quizzes</p>
+</a>
+
+<a href="https://t.me/+yaP2OoyuxdIyMTA9" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-pink mb-2"></div>
+  <h3 class="font-semibold">Quiz Collection</h3>
+  <p class="text-slate-500 text-sm">Quiz Collection</p>
+</a>
+
+<a href="https://t.me/+TGg0HNtGUJkxMjg9" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-green mb-2"></div>
+  <h3 class="font-semibold">Study Materials Group</h3>
+  <p class="text-slate-500 text-sm">Notes & resources</p>
+</a>
+
+<a href="https://t.me/pw_studymaterials" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-green mb-2"></div>
+  <h3 class="font-semibold">Study Materials Channel</h3>
+  <p class="text-slate-500 text-sm">Notes & resources</p>
+</a>
+
+<a href="https://t.me/+i_EUVbgLLVZkZjc9" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-indigo mb-2"></div>
+  <h3 class="font-semibold">Mentorship</h3>
+  <p class="text-slate-500 text-sm">Guidance & strategy by MBBS student</p>
+</a>
+
+<a href="https://discord.gg/j2rdAqW2cS" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-slate mb-2"></div>
+  <h3 class="font-semibold">Discord Campus</h3>
+  <p class="text-slate-500 text-sm">Focus rooms</p>
+</a>
+
+<a href="https://link.yeolpumta.com/" class="card p-5 rounded-xl">
+  <div class="h-1 w-8 bar-slate mb-2"></div>
+  <h3 class="font-semibold">YPT Tracker</h3>
+  <p class="text-slate-500 text-sm">Track study hours</p>
+</a>
+
+</section>
+
+<!-- COUNTDOWN -->
+<section class="max-w-5xl mx-auto mb-6">
+  <div class="card rounded-xl p-4">
+    <h3 class="text-xs tracking-widest text-slate-400 text-center mb-3">
+      EXAM COUNTDOWN
+    </h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+      <div><div class="h-1 w-8 mx-auto bar-indigo mb-2"></div><b>NEET 2027</b><div id="neet" class="text-slate-400 text-xs"></div></div>
+      <div><div class="h-1 w-8 mx-auto bar-pink mb-2"></div><b>JEE Jan 27</b><div id="jeejan" class="text-slate-400 text-xs"></div></div>
+      <div><div class="h-1 w-8 mx-auto bar-green mb-2"></div><b>JEE Apr 27</b><div id="jeeapr" class="text-slate-400 text-xs"></div></div>
+      <div><div class="h-1 w-8 mx-auto bar-slate mb-2"></div><b>Boards</b><div id="boards" class="text-slate-400 text-xs"></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center text-xs text-slate-500 pb-6">
+  Doubt Busters • Site built by @lazyekansh
+</footer>
+
+<script>
+function cd(id,date){
+  const el=document.getElementById(id);
+  const d=Math.floor((new Date(date)-new Date())/86400000);
+  el.innerText=d>0?`${d} days left`:"Ongoing";
+}
+cd("neet","2027-05-01");
+cd("jeejan","2027-01-20");
+cd("jeeapr","2027-04-15");
+cd("boards","2027-02-01");
+</script>
 
 </body>
 </html>
