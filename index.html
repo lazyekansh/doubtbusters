@@ -17,7 +17,6 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== ambient glow ===== */
 body::before{
   content:'';
   position:fixed;
@@ -28,7 +27,6 @@ body::before{
   z-index:-2;
 }
 
-/* ===== snowflakes ===== */
 .snowflake{
   position:fixed;
   top:-10px;
@@ -36,7 +34,6 @@ body::before{
   pointer-events:none;
   animation:fall linear infinite;
 
-  /* ✨ subtle glow */
   text-shadow:
     0 0 6px rgba(255,255,255,0.25),
     0 0 12px rgba(255,255,255,0.15);
@@ -46,14 +43,12 @@ body::before{
   to{transform:translateY(110vh)}
 }
 
-/* ===== logo bounce ===== */
 @keyframes bounce{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-6px)}
 }
 .logo-bounce{animation:bounce 2.5s ease-in-out infinite}
 
-/* ===== cards ===== */
 .card{
   background:linear-gradient(180deg,#0b0b0b,#050505);
   border:1px solid rgba(255,255,255,.08);
@@ -64,7 +59,6 @@ body::before{
   border-color:#6366f1;
   box-shadow:0 0 18px rgba(99,102,241,.25);
 }
-/* === MAIN GROUP FEATURED CARD === */
 .featured {
   transform: scale(1.03);
   border-color: rgba(99,102,241,1);
@@ -74,8 +68,6 @@ body::before{
   position: relative;
   z-index: 2;
 }
-
-/* thicker animated top bar */
 .featured .featured-bar {
   height: 4px;
   width: 60px;
@@ -84,8 +76,6 @@ body::before{
   animation: barFlow 3s linear infinite;
   margin-bottom: 10px;
 }
-
-/* slow breathing glow */
 .featured::after {
   content: "";
   position: absolute;
@@ -111,7 +101,6 @@ body::before{
   100% { background-position: 200% }
 }
 
-/* accent bars */
 .bar-indigo{background:linear-gradient(90deg,#6366f1,#818cf8)}
 .bar-pink{background:linear-gradient(90deg,#ec4899,#f472b6)}
 .bar-green{background:linear-gradient(90deg,#10b981,#34d399)}
@@ -121,7 +110,6 @@ body::before{
 
 <body class="px-4 md:px-6">
 
-<!-- snowflakes -->
 <script>
 for(let i=0;i<50;i++){
   let s=document.createElement("div");
@@ -131,7 +119,7 @@ for(let i=0;i<50;i++){
   s.style.animationDuration = 8 + Math.random()*12 + "s";
   s.style.fontSize = 6 + Math.random()*6 + "px";
 
-  // ✨ random glow intensity
+
   const glow = 0.15 + Math.random()*0.25;
   s.style.textShadow = `
     0 0 ${6 + Math.random()*6}px rgba(255,255,255,${glow}),
